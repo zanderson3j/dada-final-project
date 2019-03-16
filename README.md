@@ -2,6 +2,7 @@
 ## Hack The Box
 ### Zachary Anderson
 
+---
 
 ## Get the Invitation Code
 

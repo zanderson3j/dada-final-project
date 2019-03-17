@@ -75,11 +75,28 @@ So I entered HTB{NAPIER} into the Hack the Box challenge and completed it.
 
 ## Raining Blood [40 points]:
 
+The next challenge I chose was a Steganography Challenge called Raining Blood. Steganography is hiding messages or files inside different types of messages or files. It sounded interesting and had a cool name so I tried it. It had the instructions below.
+
 ![](img/challenge2/instructions.png)
+
+I downloaded the zip file and opened it with the password 'hackthebox'. It contained the mp3 file RainingBlood.mp3. I'm pretty sure I know this song from guitar hero.
+
 ![](img/challenge2/files.png)
+
+The mp3 is a valid mp3 file. I clicked on it and it played the whole song.
+
 ![](img/challenge2/play.png)
+
+In class, we did static analysis on a number of files using FileInsight. This had a nice GUI and helped if the contents were encrypted. During the Mobile Security week, we used the strings command to print out the readable characters from any file type. Since I didn't have a hex editor already downloaded I decided to try the strings command first, so I ran 'strings RainingBlood.mp3' from the terminal. I didn't know exactly what I was looking for, but as I scrolled through the contents one line stuck out from the rest and ended with two equals signs.
+
 ![](img/challenge2/found.png)
+
+This looked to me like another BASE64 encoded string, so I went back to https://www.base64decode.org/ and decoded it.
+
 ![](img/challenge2/decode.png)
+
+It turned out to be the hidden message. I went back to Hack the Box and entered the flag HTB{h1dd1ng_d4t4_b3tw33n_mp3_fr4m3s_is_not_funny!!} to complete the challenge.
+
 ![](img/challenge2/complete.png)
 
 ## fs0ciety [30 points]:

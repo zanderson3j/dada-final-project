@@ -48,12 +48,29 @@ I was able to make an account and start the challenges.
 
 ## Deceitful Batman [10 points]:
 
+Looking through the challenges, they seemed pretty tough; so, I tried to find a simple one to ease my way into it. The fist challenge was called Deceitful Batman. It is a 10 point Cryptography Challenge. You are given the instructions below and download a password protected zip file you open with 'hackthebox'. It contains a text file called finale.txt.
+
 ![](img/challenge1/instructions.png)
 ![](img/challenge1/files.png)
+
+I opened finale.txt and saw it contained an encrypted string. The string only had two letters, so my first thought was that it was some binary representation. The didn't work out though, because there are 150 characters which doesn't divide evenly by 8.
+
 ![](img/challenge1/encrypted.png)
+
+I was stumped, so I looked for how to decode strings with an unknown cipher and found a helpful website: http://practicalcryptography.com/cryptanalysis/text-characterisation/identifying-unknown-ciphers/. One of the very first ciphers it mentions is a two symbol Cipher called Baconian.
+
 ![](img/challenge1/site.png)
+
+I followed the link to the following page: http://practicalcryptography.com/ciphers/baconian-cipher/. Here I found that this cipher uses five letters to represent each letter you want to encode. It gave the key below for encoding and decoding.
+
 ![](img/challenge1/key.png)
+
+Treating the letter N as b and A as a in the key above, I translated the encrypted text to find that the flag is NAPIER.
+
 ![](img/challenge1/solved.png)
+
+So I entered HTB{NAPIER} into the Hack the Box challenge and completed it.
+
 ![](img/challenge1/complete.png)
 
 ## Raining Blood [40 points]:

@@ -44,6 +44,8 @@ I got back what looked like something that could be the invite code...so I tried
 
 I was able to make an account and start the challenges.
 
+---
+
 ## Deceitful Batman [10 points]:
 
 ![](img/challenge1/instructions.png)

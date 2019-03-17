@@ -10,7 +10,7 @@ In order to obtain an account on Hack The Box, you need to generate an invitatio
 
 ![](img/invitecode/signup.png)
 
-The first thing I did was open up the Firefox Developer Tools and look through the html. I remember one exploit from the web security week that involved altering the keys in the html to trick the database into letting you in, but while examining the html I saw a javascript file called iniviteapi.min.js.
+The first thing I did was open up the Firefox Developer Tools and look through the html. I remember one exploit from the web security week that involved altering the keys in the html to trick the database into letting you in. I couldn't get that to work, but while examining the html I saw a javascript file called iniviteapi.min.js.
 
 ![](img/invitecode/devtools.png)
 

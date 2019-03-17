@@ -6,15 +6,43 @@
 
 ## Get the Invitation Code
 
+In order to obtain an account on Hack The Box, you need to generate an invitation code. This isn't just given to you; you start on this sign up page and need to figure out how to get one.
+
 ![](img/invitecode/signup.png)
+
+The first thing I did was open up the Firefox Developer Tools and look through the html. I remember one exploit from the web security week that involved altering the keys in the html to trick the database into letting you in, but while examining the html I saw a javascript file called iniviteapi.min.js.
+
 ![](img/invitecode/devtools.png)
+
+I took a closer look at this file, still in the Developer Tools, and saw some things that looked like function names. One was called makeInviteCode.
+
 ![](img/invitecode/apifunc.png)
+
+I went to the console in the Developer Tools, and since this js file was already loaded in the browser, I run the makeInviteCode() function. It returned a BASE64 encoded string.
+
 ![](img/invitecode/console.png)
+
+I took the string and went to https://www.base64decode.org/ and decoded it.
+
 ![](img/invitecode/decode-console.png)
+
+The message revealed that I needed to make a post request to one of the Hack The Box endpoints. I decided to use the curl command to make a simple post request. I got back another encoded string.
+
 ![](img/invitecode/curl.png)
+
+The format didn't specifically say it was BASE64 encoded, but it looked like it was since I've seen most of them end with an equals sign or two. So I used the same website as before to decode the string.
+
 ![](img/invitecode/decode-curl.png)
+
+I got back what looked like something that could be the invite code...so I tried it...
+
 ![](img/invitecode/enter.png)
+
+...and I got in!
+
 ![](img/invitecode/congrats.png)
+
+I was able to make an account and start the challenges.
 
 ## Deceitful Batman [10 points]:
 

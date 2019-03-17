@@ -73,9 +73,11 @@ So I entered HTB{NAPIER} into the Hack the Box challenge and completed it.
 
 ![](img/challenge1/complete.png)
 
+---
+
 ## Raining Blood [40 points]:
 
-The next challenge I chose was a Steganography Challenge called Raining Blood. Steganography is hiding messages or files inside different types of messages or files. It sounded interesting and had a cool name so I tried it. It had the instructions below.
+The next challenge I chose was a 40 point Steganography Challenge called Raining Blood. Steganography is hiding messages or files inside different types of messages or files. It sounded interesting and had a cool name so I tried it. It had the instructions below.
 
 ![](img/challenge2/instructions.png)
 
@@ -99,14 +101,41 @@ It turned out to be the hidden message. I went back to Hack the Box and entered 
 
 ![](img/challenge2/complete.png)
 
+---
+
 ## fs0ciety [30 points]:
+
+The next Challenge I chose was a 30 point Miscellaneous Challenge called fs0ciety. It involves cracking a password to a zip file and decoding an SSH password inside. The instructions and zip file are below.
 
 ![](img/challenge3/instructions.png)
 ![](img/challenge3/zipfile.png)
+
+Trying to open the zip file gives the following prompt.
+
 ![](img/challenge3/passwordscreen.png)
+
+I tried using the strings command again and sifted through the output. I couldn't find anything that could be used as the password. I searched online for ways to open a password protected zip file, and found several answers that involved using a program called John the Ripper. I downloaded the program from the website and compiled it for my OSX operating system. I then needed a word list so I found that the file rockyou.txt is very popular for password cracking. I was having trouble getting it to run, so I looked for examples on youtube and found one. It used a package you can download from homebrew called 'jumbo-john'. So I downladed it and followed the instructions with rockyou.txt as my wordlist. I managed to crack the password 'justdoit'.
+
 ![](img/challenge3/jtryourock.png)
+
+Opening the zip file shows that there is a text file called 'sshcreds_datacenter.txt'.
+
 ![](img/challenge3/txtfile.png)
+
+The file contains encrypted SSH credentials.
+
 ![](img/challenge3/encrypted.png)
+
+It looked BASE64 encoded again so I used https://www.base64decode.org/ to decode it.
+
 ![](img/challenge3/decode64.png)
+
+It spit out binary, so I translated the binary to ascii characters to get the flag.
+
 ![](img/challenge3/binarytoletter.png)
+
+I went back to Hack The Box and input the flag HTB{if_y0u_c@n_$m3ll_wh@t_th3_r0ck_is_c00king} to complete the challenge.
+
 ![](img/challenge3/complete.png)
+
+---

@@ -120,7 +120,14 @@ Trying to open the zip file gives the following prompt.
 
 ![](img/challenge3/passwordscreen.png)
 
-I tried using the strings command again and sifted through the output. I couldn't find anything that could be used as the password. I searched online for ways to open a password protected zip file, and found several answers that involved using a program called John the Ripper. I downloaded the program from the website and compiled it for my OSX operating system. I then needed a word list so I found that the file rockyou.txt is very popular for password cracking. I was having trouble getting it to run, so I looked for examples on youtube and found one. It used a package you can download from homebrew called 'jumbo-john'. So I downladed it and followed the instructions with rockyou.txt as my wordlist. I managed to crack the password 'justdoit'.
+I tried using the strings command again and sifted through the output. I couldn't find anything that could be used as the password. I searched online for ways to open a password protected zip file, and found several answers that involved using a program called John the Ripper. It is a free tool that you can use to crack passwords of different file types using a variety of methods.
+
+I downloaded the program from the website and compiled it for my OSX operating system. I then needed a large word list to test the hashed password against, so I found that the file rockyou.txt is very popular for password cracking. I was having trouble getting it to run, so I looked for examples on youtube and found one. It used a package you can download from homebrew called 'jumbo-john'. So I downloaded it and followed the tutorial with rockyou.txt as my wordlist. I managed to crack the password 'justdoit'.
+
+Here is an explanation of the process in the screenshot below:
+* After downloading the jumbo-john via homebrew and adding john to my PATH, I used the zip2john command to get a copy of the hashed zip password, and saved it to a text file.
+* I then ran john with the format option as PKZIP which tells john the type of hash to use (in this case for a zip file), and the wordlist as rockyou.txt. I also specified the text file with my hashed password to crack. This command runs through the massive word list and hashes each word and common differences to see if it matches the hashed password.
+* I then ran john with the show option and my hashed password text file, and it displayed the resulting password.
 
 ![](img/challenge3/jtryourock.png)
 

@@ -18,7 +18,7 @@ I took a closer look at this file, still in the Developer Tools, and saw some th
 
 ![](img/invitecode/apifunc.png)
 
-I went to the console in the Developer Tools, and since this js file was already loaded in the browser, I run the makeInviteCode() function. It returned a BASE64 encoded string.
+I went to the console in the Developer Tools, and since this js file was already loaded in the browser, I run the makeInviteCode() function. It returned a BASE64 encoded string. I looked at the following site to learn about BASE64 endcoded strings: http://practicalcryptography.com/ciphers/base64-cipher/. BASE64 encoded text looks like a jumbled mess of upper and lowercase letters, numbers, and either 0, 1, or 2 equals signs at the end. In many challenges these popped up and were readily recognizable.
 
 ![](img/invitecode/console.png)
 
@@ -48,20 +48,20 @@ I was able to make an account and start the challenges.
 
 ## Deceitful Batman [10 points]:
 
-Looking through the challenges, they seemed pretty tough; so, I tried to find a simple one to ease my way into it. The fist challenge was called Deceitful Batman. It is a 10 point Cryptography Challenge. You are given the instructions below and download a password protected zip file you open with 'hackthebox'. It contains a text file called finale.txt.
+Looking through the challenges, they seemed pretty tough; so, I tried to find a simple one to ease my way into it. The first challenge was called Deceitful Batman. It is a 10 point Cryptography Challenge. You are given the instructions below and download a password protected zip file you open with 'hackthebox'. It contains a text file called finale.txt.
 
 ![](img/challenge1/instructions.png)
 ![](img/challenge1/files.png)
 
-I opened finale.txt and saw it contained an encrypted string. The string only had two letters, so my first thought was that it was some binary representation. The didn't work out though, because there are 150 characters which doesn't divide evenly by 8.
+I opened finale.txt and saw it contained an encrypted string. The string only had two letters, so my first thought was that it was some binary representation. The didn't work out though, because there are 150 characters which doesn't divide evenly by 8. I also thought maybe it had something to do with morse code, but couldn't make sense of it that way either.
 
 ![](img/challenge1/encrypted.png)
 
-I was stumped, so I looked for how to decode strings with an unknown cipher and found a helpful website: http://practicalcryptography.com/cryptanalysis/text-characterisation/identifying-unknown-ciphers/. One of the very first ciphers it mentions is a two symbol Cipher called Baconian.
+I was stumped, so I looked for how to decode strings with an unknown cipher and found a helpful website: http://practicalcryptography.com/cryptanalysis/text-characterisation/identifying-unknown-ciphers/. One of the very first ciphers it mentions is a two symbol Cipher called Baconian. It says this is most likely the cipher being used in this situation.
 
 ![](img/challenge1/site.png)
 
-I followed the link to the following page: http://practicalcryptography.com/ciphers/baconian-cipher/. Here I found that this cipher uses five letters to represent each letter you want to encode. It gave the key below for encoding and decoding.
+I followed the link to the following page: http://practicalcryptography.com/ciphers/baconian-cipher/. Here I found that the Baconian cipher is in a class called substitution ciphers. It uses five letters to represent each letter you want to encode; in other words, five characters are substituted in for each character being encoded. Since the encrypted text only had two different symbols and the total number was divisible by 5, it looked promising. I found the key below for encoding and decoding. It was given on the website.
 
 ![](img/challenge1/key.png)
 
@@ -77,7 +77,7 @@ So I entered HTB{NAPIER} into the Hack the Box challenge and completed it.
 
 ## Raining Blood [40 points]:
 
-The next challenge I chose was a 40 point Steganography Challenge called Raining Blood. Steganography is hiding messages or files inside different types of messages or files. It sounded interesting and had a cool name so I tried it. It had the instructions below.
+The next challenge I chose was a 40 point Steganography Challenge called Raining Blood. Steganography is hiding messages or files inside different types of messages or files. It sounded interesting, and had a cool name, so I tried it. It had the instructions below.
 
 ![](img/challenge2/instructions.png)
 
@@ -89,17 +89,23 @@ The mp3 is a valid mp3 file. I clicked on it and it played the whole song.
 
 ![](img/challenge2/play.png)
 
-In class, we did static analysis on a number of files using FileInsight. This had a nice GUI and helped if the contents were encrypted. During the Mobile Security week, we used the strings command to print out the readable characters from any file type. Since I didn't have a hex editor already downloaded I decided to try the strings command first, so I ran 'strings RainingBlood.mp3' from the terminal. I didn't know exactly what I was looking for, but as I scrolled through the contents one line stuck out from the rest and ended with two equals signs.
+I first checked what would happen if I changed the file extension to .txt. It spit out a ton of crazy looking characters, and was really long. I didn't feel like I was making much progress, so I tried a better method
+
+In class, we did static analysis on a number of files using FileInsight. This had a nice GUI and helped if the contents were encrypted. During the Mobile Security week, we used the strings command to print out the readable characters from any file type. The linux man page for strings (https://linux.die.net/man/1/strings) says that it prints out all the printable characters in a file. This should get rid of a lot of the noise that I was seeing in the text file. Since I didn't have a hex editor already downloaded I decided to try the strings command first, so I ran 'strings RainingBlood.mp3' from the terminal. I didn't know exactly what I was looking for, but as I scrolled through the contents, one line stuck out from the rest and ended with two equals signs.
 
 ![](img/challenge2/found.png)
 
-This looked to me like another BASE64 encoded string, so I went back to https://www.base64decode.org/ and decoded it.
+This looked to me like another BASE64 encoded string since from finding the invite code I learned that they could end in two equals signs. I went back to https://www.base64decode.org/ and decoded it.
 
 ![](img/challenge2/decode.png)
 
 It turned out to be the hidden message. I went back to Hack the Box and entered the flag HTB{h1dd1ng_d4t4_b3tw33n_mp3_fr4m3s_is_not_funny!!} to complete the challenge.
 
 ![](img/challenge2/complete.png)
+
+After finishing the challenge, I was interested in how hard it was to see the encoded string in the text file I made. So, I went back and searched for the string, and saw how difficult it would be to find it without the strings command. It is well hidden among a lot of crazy looking symbols.
+
+![](img/challenge2/text.png)
 
 ---
 

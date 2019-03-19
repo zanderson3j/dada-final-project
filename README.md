@@ -30,7 +30,7 @@ The message revealed that I needed to make a post request to one of the Hack The
 
 ![](img/invitecode/curl.png)
 
-The format didn't specifically say it was BASE64 encoded, but it looked like it was since I've seen most of them end with an equals sign or two. So I used the same website as before to decode the string.
+The format didn't specifically say it was BASE64 encoded, but it looked like it was a mix of upper and lowercase characters with an equals sign at the end. So I used the same website as before to decode the string.
 
 ![](img/invitecode/decode-curl.png)
 
@@ -89,7 +89,7 @@ The mp3 is a valid mp3 file. I clicked on it and it played the whole song.
 
 ![](img/challenge2/play.png)
 
-I first checked what would happen if I changed the file extension to .txt. It spit out a ton of crazy looking characters, and was really long. I didn't feel like I was making much progress, so I tried a better method
+I first checked what would happen if I changed the file extension to .txt. It spit out a ton of crazy looking characters, and was really long. I didn't feel like I was making much progress, so I tried for a better method.
 
 In class, we did static analysis on a number of files using FileInsight. This had a nice GUI and helped if the contents were encrypted. During the Mobile Security week, we used the strings command to print out the readable characters from any file type. The linux man page for strings (https://linux.die.net/man/1/strings) says that it prints out all the printable characters in a file. This should get rid of a lot of the noise that I was seeing in the text file. Since I didn't have a hex editor already downloaded I decided to try the strings command first, so I ran 'strings RainingBlood.mp3' from the terminal. I didn't know exactly what I was looking for, but as I scrolled through the contents, one line stuck out from the rest and ended with two equals signs.
 

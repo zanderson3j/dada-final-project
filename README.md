@@ -155,13 +155,13 @@ I went back to Hack The Box and input the flag HTB{if_y0u_c@n_$m3ll_wh@t_th3_r0c
 
 ## Works Cited
 
-[1] http://practicalcryptography.com/ciphers/base64-cipher/
-[2] https://www.base64decode.org/
-[3] http://practicalcryptography.com/cryptanalysis/text-characterisation/identifying-unknown-ciphers/
-[4] http://practicalcryptography.com/ciphers/baconian-cipher/
-[5] https://linux.die.net/man/1/strings
-[6] https://security.stackexchange.com/questions/17774/how-to-recover-a-lost-zip-file-password
-[7] https://synacl.wordpress.com/2012/08/18/decrypting-a-zip-using-john-the-ripper/
-[8] https://www.youtube.com/watch?v=95ZKQsEx-8c
-[9] https://github.com/magnumripper/JohnTheRipper
-[10] http://roubaixinteractive.com/PlayGround/Binary_Conversion/Binary_To_Text.asp
+#### [1] http://practicalcryptography.com/ciphers/base64-cipher/
+#### [2] https://www.base64decode.org/
+#### [3] http://practicalcryptography.com/cryptanalysis/text-characterisation/identifying-unknown-ciphers/
+#### [4] http://practicalcryptography.com/ciphers/baconian-cipher/
+#### [5] https://linux.die.net/man/1/strings
+#### [6] https://security.stackexchange.com/questions/17774/how-to-recover-a-lost-zip-file-password
+#### [7] https://synacl.wordpress.com/2012/08/18/decrypting-a-zip-using-john-the-ripper/
+#### [8] https://www.youtube.com/watch?v=95ZKQsEx-8c
+#### [9] https://github.com/magnumripper/JohnTheRipper
+#### [10] http://roubaixinteractive.com/PlayGround/Binary_Conversion/Binary_To_Text.asp
